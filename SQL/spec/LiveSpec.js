@@ -41,18 +41,17 @@ describe("Persistent Node Chat Server", function() {
 
               var queryString = "SELECT * FROM messages where username = ?";
               var queryArgs = ['Valjean'];
-              /* TODO: Change the above queryString & queryArgs to match your schema design
+              /* Change the above queryString & queryArgs to match your schema design
                * The exact query string and query args to use
                * here depend on the schema you design, so I'll leave
                * them up to you. */
               dbConnection.query( queryString, queryArgs,
                 function(err, results, fields) {
                   // Should have one result:
-                  console.log('db results: ', results);
                   expect(results.length).toEqual(1);
                   expect(results[0].username).toEqual("Valjean");
                   expect(results[0].message).toEqual("In mercy's name, three days is all I need.");
-                  /* TODO: You will need to change these tests if the
+                  /* You will need to change these tests if the
                    * column names in your schema are different from
                    * mine! */
 
@@ -61,9 +60,9 @@ describe("Persistent Node Chat Server", function() {
             });
   });
 
-  xit("Should output all messages from the DB", function(done) {
+  it("Should output all messages from the DB", function(done) {
     // Let's insert a message into the db
-    var queryString = "";
+    var queryString = "INSERT INTO messages (username, message) VALUES (?,?)";
     var queryArgs = ["Javert", "Men like you can never change!"];
     /* TODO - The exact query string and query args to use
      * here depend on the schema you design, so I'll leave
@@ -79,7 +78,8 @@ describe("Persistent Node Chat Server", function() {
             expect(messageLog[0].username).toEqual("Javert");
             expect(messageLog[0].message).toEqual("Men like you can never change!");
             done();
-          });
-      });
+        });
+    });
+
   });
 });
