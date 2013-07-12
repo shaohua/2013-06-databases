@@ -10,7 +10,7 @@ CREATE TABLE messages (
  room varchar(30),
  createdAt timestamp,
  username varchar(255),
- message text,
+ text text,
  PRIMARY KEY (msg_id)
 );
 
