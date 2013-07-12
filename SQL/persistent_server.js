@@ -7,7 +7,7 @@ var mysql = require('mysql');
  * "chat", which we created by running schema.sql.*/
 var dbConnection = mysql.createConnection({
   user: "root",
-  password: "",
+  password: "plantlife",
   database: "chat"
 });
 
